@@ -1,0 +1,32 @@
+package com.company;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scnr = new Scanner(System.in); // new Scanner object
+
+        // Integer Test
+        System.out.println("Input an integer:");
+        String userInt = scnr.nextLine();
+        NumberFormat.testNumber(userInt);
+
+        // Float Test
+        System.out.println("Input a float:");
+        String userFloat = scnr.nextLine();
+        NumberFormat.testNumber(userFloat);
+
+        // String Test
+        System.out.println("Input a String:");
+        String userString = scnr.nextLine();
+        NumberFormat.testNumber(userString);
+
+        // Integer Array Test
+        //ArrayList<Integers> integersArrayList = new ArrayList<Integers>();
+        //System.out.println("Input three integers:");
+        //String userString = scnr.nextLine();
+        //NumberFormat.testNumber(userString);
+
+        // File Test
+    }
+}
