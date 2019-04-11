@@ -1,0 +1,25 @@
+package com.company;
+
+public class NumberFormat {
+    public static void testNumber(String number) throws NumberFormatException {
+        try {
+            new Integer(number);
+            System.out.println(number + " is an integer.");
+            return;
+        } catch (NumberFormatException notAnInt) {
+            try {
+                new Float(number);
+                System.out.println(number + " is a floating-point number.");
+                return;
+            } catch (NumberFormatException notAFloat) {
+                try {
+                    new String(number);
+                    System.out.println(number + " is a String.");
+                    return;
+                } catch (NumberFormatException notAString) {
+                    System.out.println(number + " is not a number at all.");
+                }
+            }
+        }
+    }
+}
