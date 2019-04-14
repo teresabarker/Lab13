@@ -1,37 +1,44 @@
-/*
-Project: Lab 13
 Purpose Details: Java Exceptions
 Course: IST 242-001
 Author: Teresa Barker
 Date Developed: 4/11/2019
-Last Date Changed: 4/11/2019
-Revision: creating the program
+Last Date Changed: 4/14/2019
+Revision: creating new methods
 */
 
 package com.company;
 
 
 public class NumberFormat {
-    public static void testNumber(String number) throws NumberFormatException {
+    public static void testInteger(String number) throws NumberFormatException {
 
         try {
             new Integer(number);
             System.out.println(number + " is an integer.");
             return;
         } catch (NumberFormatException notAnInt) {
-            try {
-                new Float(number);
-                System.out.println(number + " is a floating-point number.");
-                return;
-            } catch (NumberFormatException notAFloat) {
-                try {
-                    new String(number);
-                    System.out.println(number + " is a String.");
-                    return;
-                } catch (NumberFormatException notAString) {
-                    System.out.println(number + " is not a number at all.");
-                }
-            }
+            System.out.println(number + " is not correct.");
+
+        }
+    }
+    public static void testFloat(String number) throws NumberFormatException {
+
+        try {
+            new Float(number);
+            System.out.println(number + " is a floating-point.");
+            return;
+        } catch (NumberFormatException notAFloat) {
+            System.out.println(number + " is not correct.");
+        }
+    }
+    public static void testString(String number) throws NumberFormatException {
+
+        try {
+            new String(number);
+            System.out.println(number + " is a String.");
+            return;
+        } catch (NumberFormatException notAString) {
+            System.out.println(number + " is not correct.");
         }
     }
 }
