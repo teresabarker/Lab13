@@ -1,32 +1,91 @@
+/*
+Project: Lab 13
+Purpose Details: Java Exceptions
+Course: IST 242-001
+Author: Teresa Barker
+Date Developed: 4/11/2019
+Last Date Changed: 4/14/2019
+Revision: re-loops after incorrect user input
+*/
+
 package com.company;
 import java.util.Scanner;
+import java.util.Arrays;
+import java.lang.String;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scnr = new Scanner(System.in); // new Scanner object
+    Scanner scnr = new Scanner(System.in); // new Scanner object
 
         // Integer Test
         System.out.println("Input an integer:");
-        String userInt = scnr.nextLine();
-        NumberFormat.testNumber(userInt);
 
-        // Float Test
+        boolean isInteger = false;
+
+        while(!isInteger) {
+            if (scnr.hasNextInt()) {
+                String userInt = scnr.nextLine();
+                NumberFormat.testNumber(userInt);
+                isInteger = true;
+            } else if (!scnr.hasNextInt()) {
+                System.out.println("Not an integer. Try again:");
+                String userInt = scnr.nextLine();
+                isInteger = false;
+            }
+        }
+
+        //Float Test
         System.out.println("Input a float:");
-        String userFloat = scnr.nextLine();
-        NumberFormat.testNumber(userFloat);
+
+        boolean isFloat = false;
+
+        while(!isFloat) {
+            if (scnr.hasNextFloat()) {
+                String userFloat = scnr.nextLine();
+                NumberFormat.testNumber(userFloat);
+                isFloat = true;
+            } else if (!scnr.hasNextFloat()) {
+                System.out.println("Not a floating-point. Try again:");
+                String userFloat = scnr.nextLine();
+                isFloat = false;
+            }
+        }
 
         // String Test
         System.out.println("Input a String:");
-        String userString = scnr.nextLine();
-        NumberFormat.testNumber(userString);
+
+        boolean isString = false;
+
+        while(!isString) {
+            if (scnr.hasNextLine()) {
+                String userString = scnr.nextLine();
+                NumberFormat.testNumber(userString);
+                isString = true;
+            } else if (!scnr.hasNextLine()) {
+                System.out.println("Not a String. Try again:");
+                String userString = scnr.nextLine();
+                isString = false;
+            }
+        }
 
         // Integer Array Test
-        //ArrayList<Integers> integersArrayList = new ArrayList<Integers>();
-        //System.out.println("Input three integers:");
-        //String userString = scnr.nextLine();
-        //NumberFormat.testNumber(userString);
+        int[] integerArray = new int[3];
+
+        System.out.println("Input three integers:");
+        try {
+            int i = 0;
+            while (i < integerArray.length) {
+                integerArray[i] = scnr.nextInt();
+                ++i;
+            }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println(Arrays.toString(integerArray));
 
         // File Test
     }
 }
+
+
