@@ -1,7 +1,19 @@
+/*
+Project: Lab 13
+Purpose Details: Java Exceptions
+Course: IST 242-001
+Author: Teresa Barker
+Date Developed: 4/11/2019
+Last Date Changed: 4/11/2019
+Revision: creating the program
+*/
+
 package com.company;
+
 
 public class NumberFormat {
     public static void testNumber(String number) throws NumberFormatException {
+
         try {
             new Integer(number);
             System.out.println(number + " is an integer.");
