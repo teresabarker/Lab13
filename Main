@@ -4,14 +4,15 @@ Purpose Details: Java Exceptions
 Course: IST 242-001
 Author: Teresa Barker
 Date Developed: 4/11/2019
-Last Date Changed: 4/14/2019
-Revision: re-loops after incorrect user input
+Last Date Changed: 4/11/2019
+Revision: fixing accepted user input
 */
 
 package com.company;
 import java.util.Scanner;
 import java.util.Arrays;
 import java.lang.String;
+//import java.io.File;
 
 public class Main {
 
@@ -26,7 +27,7 @@ public class Main {
         while(!isInteger) {
             if (scnr.hasNextInt()) {
                 String userInt = scnr.nextLine();
-                NumberFormat.testNumber(userInt);
+                NumberFormat.testInteger(userInt);
                 isInteger = true;
             } else if (!scnr.hasNextInt()) {
                 System.out.println("Not an integer. Try again:");
@@ -43,7 +44,7 @@ public class Main {
         while(!isFloat) {
             if (scnr.hasNextFloat()) {
                 String userFloat = scnr.nextLine();
-                NumberFormat.testNumber(userFloat);
+                NumberFormat.testFloat(userFloat);
                 isFloat = true;
             } else if (!scnr.hasNextFloat()) {
                 System.out.println("Not a floating-point. Try again:");
@@ -60,7 +61,7 @@ public class Main {
         while(!isString) {
             if (scnr.hasNextLine()) {
                 String userString = scnr.nextLine();
-                NumberFormat.testNumber(userString);
+                NumberFormat.testString(userString);
                 isString = true;
             } else if (!scnr.hasNextLine()) {
                 System.out.println("Not a String. Try again:");
@@ -85,6 +86,9 @@ public class Main {
         System.out.println(Arrays.toString(integerArray));
 
         // File Test
+        //System.out.println("Enter a file name: ");
+        //String filename = scnr.nextLine();
+        //File file = new File(filename);
     }
 }
 
