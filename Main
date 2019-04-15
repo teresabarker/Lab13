@@ -9,22 +9,23 @@ Revision: fixing accepted user input
 */
 
 package com.company;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.Arrays;
 import java.lang.String;
-//import java.io.File;
 
 public class Main {
 
     public static void main(String[] args) {
-    Scanner scnr = new Scanner(System.in); // new Scanner object
+        Scanner scnr = new Scanner(System.in); // new Scanner object
 
         // Integer Test
         System.out.println("Input an integer:");
 
         boolean isInteger = false;
 
-        while(!isInteger) {
+        while (!isInteger) {
             if (scnr.hasNextInt()) {
                 String userInt = scnr.nextLine();
                 NumberFormat.testInteger(userInt);
@@ -41,7 +42,7 @@ public class Main {
 
         boolean isFloat = false;
 
-        while(!isFloat) {
+        while (!isFloat) {
             if (scnr.hasNextFloat()) {
                 String userFloat = scnr.nextLine();
                 NumberFormat.testFloat(userFloat);
@@ -58,7 +59,7 @@ public class Main {
 
         boolean isString = false;
 
-        while(!isString) {
+        while (!isString) {
             if (scnr.hasNextLine()) {
                 String userString = scnr.nextLine();
                 NumberFormat.testString(userString);
@@ -75,21 +76,31 @@ public class Main {
 
         System.out.println("Input three integers:");
         try {
+            Scanner scnr2 = new Scanner(System.in);
             int i = 0;
-            while (i < integerArray.length) {
-                integerArray[i] = scnr.nextInt();
+            while (scnr2.hasNextInt()) {
+                integerArray[i] = scnr2.nextInt();
                 ++i;
             }
         } catch (IndexOutOfBoundsException e) {
             System.out.println(e.getMessage());
         }
+        System.out.println("Max limit of 3 integers reached.");
         System.out.println(Arrays.toString(integerArray));
 
         // File Test
-        //System.out.println("Enter a file name: ");
-        //String filename = scnr.nextLine();
-        //File file = new File(filename);
+        try {
+            System.out.println("Enter a file name: ");
+            String userFile = new String();
+            userFile = scnr.nextLine();
+            FileWriter file = new FileWriter(scnr.nextLine());
+            file.write(System.getProperty(scnr.toString()));
+        } catch (IOException ioe) {
+            System.out.println("File not found. Try again:");
+            System.out.println(ioe.getMessage());
+        } finally {
+            System.getProperties().put(scnr.toString(), scnr);
+            System.out.println(System.getProperty(scnr.toString()));
+        }
     }
 }
-
-
